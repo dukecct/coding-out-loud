@@ -1,6 +1,6 @@
 One hour, one dataset, a pair of programmers. In each episode [Dr. Mine Çetinkaya-Rundel](http://mine-cr.com/) will team up with an undergraduate student to collaboratively explore and visualize a dataset with the goal of both answering questions of mutual interest with the dataset and showcasing the process of doing data science, with R, collaboratively. The session will feature live coding and audience participation. Coding-along is encouraged, however those who would just like to watch and/or contribute ideas in the chat for improvements are equally welcome! Basic familiarity with R and tidyverse will be helpful, however the only requirement for participation is a browser and a stable internet connection. 
 
-This session will be livestreamed on the new [Center for Computational Thinking YouTube channel](https://www.youtube.com/channel/UCN-OX45aSM1VtXkzocx8Ppg). 
+This session will be livestreamed on the [Center for Computational Thinking YouTube channel](https://www.youtube.com/channel/UCN-OX45aSM1VtXkzocx8Ppg). 
  
 ## Episodes
 
