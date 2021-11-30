@@ -1,0 +1,153 @@
+Doctors of Dr. Who
+================
+Mine Çetinkaya-Rundel + Evan Dragich
+11/30/2021
+
+``` r
+library(tidyverse)
+library(here)
+library(lubridate)
+library(ggtext)
+library(colorblindr)
+```
+
+``` r
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "90%"
+)
+```
+
+``` r
+episodes <- read_csv(here::here("01-dr-who", "data/episodes.csv"))
+imdb <- read_csv(here::here("01-dr-who", "data/imdb.csv"))
+```
+
+## Task 1: Recreate
+
+Recreate the following plot (Source:
+<https://www.independent.ie/entertainment/doctor-who-suffers-lowest-ratings-since-2005-revival-39028919.html>).
+
+[<img src="https://image.assets.pressassociation.io/v2/image/production/3fe8f7647e7f1e4f6e5b298f1fa288c0Y29udGVudHNlYXJjaCwxNTgzODU3MjQy/2.51242519.jpg?w=1280" width="500" />](https://www.independent.ie/entertainment/doctor-who-suffers-lowest-ratings-since-2005-revival-39028919.html)
+
+``` r
+series_viewership <- episodes %>%
+  filter(type != "special") %>%
+  mutate(
+    year = year(first_aired),
+    year = if_else(year %in% c(2012, 2013), "2012/13", as.character(year))
+    ) %>%
+  filter(year != "2021") %>%
+  group_by(season_number, year) %>%
+  summarise(mean_uk_viewers = round(mean(uk_viewers), 1), .groups = "drop")
+
+ggplot(series_viewership,
+       aes(x = mean_uk_viewers, y = fct_rev(year))) +
+  geom_col(fill = "#0081BB", width = 0.75) +
+  geom_text(aes(label = paste0(mean_uk_viewers, "m")), hjust = 0, fontface = "bold", nudge_x = 0.1) +
+  geom_text(aes(x = -0.1, label = year), hjust = 1) +
+  labs(
+    title = "**Doctor Who TV ratings:** series average",
+    caption = "Recreated plot from Independent.ie, not all values match."
+  ) +
+  coord_cartesian(clip = "off", xlim = c(-0.5, 8.5)) +
+  theme_void() +
+  theme(
+    panel.grid = element_blank(),
+    plot.title = element_markdown()
+  ) +
+  geom_hline(yintercept = 12.5)
+```
+
+<img src="dr-who-with-developed-code_files/figure-gfm/series-viewership-1.png" title="Bar plot of mean UK viewership for Dr. Who between 2005 and 2020. In 2005, average viewership was 7.9 million and it decreased steadily to 5.4 million in 2020, except for bumps up to 8 million in 2008 and 2018." alt="Bar plot of mean UK viewership for Dr. Who between 2005 and 2020. In 2005, average viewership was 7.9 million and it decreased steadily to 5.4 million in 2020, except for bumps up to 8 million in 2008 and 2018." width="90%" />
+
+## Task 2: Improve
+
+Improve the plot above.
+
+``` r
+ggplot(series_viewership,
+       aes(x = year, y = mean_uk_viewers, group = 1)) +
+  geom_line(size = 1, color = "#0081BB") +
+  geom_point(color = "#0081BB") +
+  geom_point(color = "white", size = 0.5) +
+  geom_text(aes(label = paste0(mean_uk_viewers, "m")), nudge_x = -0.4) + 
+  theme_minimal() +
+  labs(
+    x = NULL, y = "UK viewers (in millions)",
+    title = "**Doctor Who TV ratings:** series average",
+    caption = "Recreated plot from Independent.ie, not all values match."
+  ) +
+  theme(
+    plot.title = element_markdown(),
+    axis.text.y = element_blank()
+  ) +
+  coord_cartesian(clip = "off")
+```
+
+<img src="dr-who-with-developed-code_files/figure-gfm/series-viewership-improved-1.png" title="Time series line plot of mean UK viewership for Dr. Who between 2005 and 2020. In 2005, average viewership was 7.9 million and it decreased steadily to 5.4 million in 2020, except for bumps up to 8 million in 2008 and 2018. Particular sharp decrease observed between 2014 and 2015." alt="Time series line plot of mean UK viewership for Dr. Who between 2005 and 2020. In 2005, average viewership was 7.9 million and it decreased steadily to 5.4 million in 2020, except for bumps up to 8 million in 2008 and 2018. Particular sharp decrease observed between 2014 and 2015." width="90%" />
+
+## Task 3: Doctors and seasons
+
+In the revived era there have been five doctors, see
+[here](https://en.wikipedia.org/wiki/List_of_Doctor_Who_episodes_(2005%E2%80%93present)#Regular_seasons)
+for which doctors were in which seasons. Recreate the previous
+visualization, this time including doctor information.
+
+``` r
+doctors <- tribble(
+  ~season_number, ~doctor_no, ~doctor_name,
+               1,          9, "Christopher Eccleston",
+               2,         10, "David Tennant",
+               3,         10, "David Tennant",
+               4,         10, "David Tennant",
+               5,         11, "Matt Smith",
+               6,         11, "Matt Smith",
+               7,         11, "Matt Smith",
+               8,         12, "Peter Capaldi",
+               9,         12, "Peter Capaldi",
+              10,         12, "Peter Capaldi",
+              11,         13, "Jodie Whittaker",
+              12,         13, "Jodie Whittaker",
+)
+```
+
+``` r
+series_viewership %>%
+  left_join(doctors) %>%
+  mutate(doctor_name = fct_reorder(doctor_name, season_number)) %>%
+  ggplot(
+    aes(x = year, y = mean_uk_viewers, 
+        color = doctor_name, shape = doctor_name, group = 1)
+    ) +
+  geom_line(color = "gray80") +
+  geom_point(size = 2) +
+  geom_text(aes(label = paste0(mean_uk_viewers, "m")), nudge_x = -0.4,
+            show.legend = FALSE) + 
+  scale_color_OkabeIto(darken = 0.2) +
+  scale_shape_manual(values = c(8, 15:18)) +
+  theme_minimal() +
+  labs(
+    x = NULL, y = "UK viewers (in millions)",
+    color = "Doctor", shape = "Doctor",
+    title = "**Doctor Who TV ratings:** series average",
+    caption = "Recreated plot from Independent.ie, not all values match."
+  ) +
+  theme(
+    plot.title = element_markdown(),
+    axis.text.y = element_blank(),
+    legend.position = c(0.2, 0.35)
+  ) +
+  coord_cartesian(clip = "off")
+```
+
+    ## Joining, by = "season_number"
+
+<img src="dr-who-with-developed-code_files/figure-gfm/series-viewership-improved-doctor-1.png" title="Time series line plot of mean UK viewership for Dr. Who between 2005 and 2020. The plot also indicates the artist that played the Doctor in each season. Season 1 (2005) is played by Christopher Eccleston. Seasons 2-4 (2006-2008) are played by David Tennant. Seasons 5-7 (2010-2012/13) are played by Matt Smith. Season 8-10 (2014-2017) are played by Peter Capaldi. Season 11 and 12 (2018 and 2020) are played by Jodie Whittaker. In 2005, average viewership was 7.9 million and it decreased steadily to 5.4 million in 2020, except for bumps up to 8 million in 2008 and 2018. Particular sharp decrease observed between 2014 and 2015." alt="Time series line plot of mean UK viewership for Dr. Who between 2005 and 2020. The plot also indicates the artist that played the Doctor in each season. Season 1 (2005) is played by Christopher Eccleston. Seasons 2-4 (2006-2008) are played by David Tennant. Seasons 5-7 (2010-2012/13) are played by Matt Smith. Season 8-10 (2014-2017) are played by Peter Capaldi. Season 11 and 12 (2018 and 2020) are played by Jodie Whittaker. In 2005, average viewership was 7.9 million and it decreased steadily to 5.4 million in 2020, except for bumps up to 8 million in 2008 and 2018. Particular sharp decrease observed between 2014 and 2015." width="90%" />
+
+## Task 4: Episode descriptions
+
+Visualize the common words in episode descriptions.
