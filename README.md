@@ -7,6 +7,8 @@ This session will be livestreamed on the new [Center for Computational Thinking 
 ### Episodes
 
 1. [Dr. Who]() with [Evan Dragich]() (BS in Psychology and Statistics, Class of 2023)
+
+:+1:
   - Date/time: Tuesday, November 30 | 1:30 – 2:30 PM EST
   - [Livestream](https://www.youtube.com/watch?v=kG9tv8NRPVo)
   - [RStudio Cloud]()
