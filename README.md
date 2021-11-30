@@ -8,11 +8,11 @@ This session will be livestreamed on the new [Center for Computational Thinking 
 
 1. [Dr. Who]() with [Evan Dragich]() (BS in Psychology and Statistics, Class of 2023)
 
-:+1:
-  - Date/time: Tuesday, November 30 | 1:30 – 2:30 PM EST
-  - [Livestream](https://www.youtube.com/watch?v=kG9tv8NRPVo)
-  - [RStudio Cloud]()
-  - [Source on GitHub](/01-dr-who/)
+:spiral_calendar: Tuesday, November 30 | 1:30 – 2:30 PM EST
+:yt: [Watch on YouTube](https://www.youtube.com/watch?v=kG9tv8NRPVo)
+:cloud: [Get started on RStudio Cloud]()
+:file_folder: [See source code on GitHub](/01-dr-who/)
 
-2. Topic TBA with [Holly Cui]() (BS in Statistics with Data Science Concentration and Minor in Computer Science, Class of 2023)
-  - Date/time: Tuesday, January 11 | 4:00 – 5:00 PM EST
+2. *Topic TBA* with [Holly Cui]() (BS in Statistics with Data Science Concentration and Minor in Computer Science, Class of 2023)
+
+:spiral_calendar: Date/time: Tuesday, January 11 | 4:00 – 5:00 PM EST
