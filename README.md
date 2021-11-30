@@ -1,37 +1,16 @@
-## Welcome to GitHub Pages
+## Coding out loud
 
-You can use the [editor on GitHub](https://github.com/dukecct/coding-out-loud/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+One hour, one dataset, a pair of programmers. In each episode [Dr. Mine Çetinkaya-Rundel](http://mine-cr.com/) will team up with an undergraduate student to collaboratively explore and visualize a dataset with the goal of both answering questions of mutual interest with the dataset and showcasing the process of doing data science, with R, collaboratively. The session will feature live coding and audience participation. Coding-along is encouraged, however those who would just like to watch and/or contribute ideas in the chat for improvements are equally welcome! Basic familiarity with R and tidyverse will be helpful, however the only requirement for participation is a browser and a stable internet connection. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This session will be livestreamed on the new [Center for Computational Thinking YouTube channel](https://www.youtube.com/channel/UCN-OX45aSM1VtXkzocx8Ppg). 
+ 
+### Episodes
 
-### Markdown
+1. [Dr. Who]() with [Evan Dragich]() (BS in Psychology and Statistics, Class of 2023)
+  - Date/time: Tuesday, November 30 | 1:30 – 2:30 PM EST
+  - [Livestream](https://www.youtube.com/watch?v=kG9tv8NRPVo)
+  - [RStudio Cloud]()
+  - [Source on GitHub](/01-dr-who/)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dukecct/coding-out-loud/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+2. Topic TBA with [Holly Cui]() (BS in Statistics with Data Science Concentration and Minor in Computer Science, Class of 2023)
+  - Date/time: Tuesday, January 11 | 4:00 – 5:00 PM EST
