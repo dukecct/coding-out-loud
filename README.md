@@ -8,10 +8,10 @@ This session will be livestreamed on the new [Center for Computational Thinking 
 
 With guest host [Evan Dragich](https://github.com/evandragich) (Duke Class of 2023, BS in Psychology and Statistics)  
 
-    :spiral_calendar: Tuesday, November 30, 2021 | 1:30 – 2:30 PM EST  
-    :tv: [Watch on YouTube](https://www.youtube.com/watch?v=kG9tv8NRPVo)  
-    :cloud: Get started on RStudio Cloud *(Link to be added)*  
-    :file_folder: [See source code on GitHub](/01-dr-who/)  
+  :spiral_calendar: Tuesday, November 30, 2021 | 1:30 – 2:30 PM EST  
+  :tv: [Watch on YouTube](https://www.youtube.com/watch?v=kG9tv8NRPVo)  
+  :cloud: Get started on RStudio Cloud *(Link to be added)*  
+  :file_folder: [See source code on GitHub](/01-dr-who/)  
 
 2. Episode 2 - *Topic TBA*
 
