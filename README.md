@@ -13,11 +13,11 @@ With guest host [Evan Dragich](https://github.com/evandragich) (Duke Class of 20
 :cloud: Get started on RStudio Cloud *(Link to be added)*  
 :file_folder: [See source code on GitHub](/01-dr-who/)  
 
-2. Episode 2 - *Topic TBA*
+### Episode 2 - *Topic TBA*
 
 With guest host [Holly Cui](https://github.com/hollyyfc) (Duke Class of 2023, BS in Statistics with Data Science Concentration and Minor in Computer Science)
 
-    :spiral_calendar: Tuesday, January 11, 2022 | 4:00 – 5:00 PM EST  
-    :tv: Watch on YouTube *(Link to be added)*  
-    :cloud: Get started on RStudio Cloud *(Link to be added)*  
-    :file_folder: See source code on GitHub *(Link to be added)*  
+:spiral_calendar: Tuesday, January 11, 2022 | 4:00 – 5:00 PM EST  
+:tv: Watch on YouTube *(Link to be added)*  
+:cloud: Get started on RStudio Cloud *(Link to be added)*  
+:file_folder: See source code on GitHub *(Link to be added)*  
