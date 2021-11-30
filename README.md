@@ -7,7 +7,7 @@ This session will be livestreamed on the new [Center for Computational Thinking 
 1. Episode 1 - [Doctors of Dr. Who](/01-dr-who/)
 
     :spiral_calendar: Tuesday, November 30, 2021 | 1:30 – 2:30 PM EST  
-    :studio_microphone: Guest host: [Evan Dragich](https://github.com/evandragich) (Duke Class of 2023, BS in Psychology and Statistics)
+    :studio_microphone: Guest host: [Evan Dragich](https://github.com/evandragich) (Duke Class of 2023, BS in Psychology and Statistics)  
     :tv: [Watch on YouTube](https://www.youtube.com/watch?v=kG9tv8NRPVo)  
     :cloud: Get started on RStudio Cloud *(Link to be added)*  
     :file_folder: [See source code on GitHub](/01-dr-who/)  
@@ -15,7 +15,7 @@ This session will be livestreamed on the new [Center for Computational Thinking 
 2. Episode 2 - *Topic TBA*
 
     :spiral_calendar: Tuesday, January 11, 2022 | 4:00 – 5:00 PM EST  
-    :studio_microphone: Guest host: [Holly Cui](https://github.com/hollyyfc) (Duke Class of 2023, BS in Statistics with Data Science Concentration and Minor in Computer Science)
+    :studio_microphone: Guest host: [Holly Cui](https://github.com/hollyyfc) (Duke Class of 2023, BS in Statistics with Data Science Concentration and Minor in Computer Science)  
     :tv: Watch on YouTube *(Link to be added)*  
     :cloud: Get started on RStudio Cloud *(Link to be added)*  
     :file_folder: See source code on GitHub *(Link to be added)*  
