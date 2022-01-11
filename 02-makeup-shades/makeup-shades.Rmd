@@ -8,9 +8,7 @@ output: html_document
 
 ```{r load-packages, message = FALSE}
 library(tidyverse)
-library(glue)
 library(here)
-library(gt)
 ```
 
 ```{r load-data, message = FALSE}
@@ -19,7 +17,7 @@ allNumbers <- read_csv(here::here("02-makeup-shades", "data/allNumbers.csv"))
 
 ## Sketch
 
-![](images/sketch.png)
+![Sketch of table to be recreated](images/sketch.png)
 
 ## Task 1: Recreate
 
