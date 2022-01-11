@@ -1,0 +1,100 @@
+---
+title: "A table of shades"
+subtitle: "Coding out loud, Ep 2"
+author: "Mine Çetinkaya-Rundel + Holly Cui"
+date: "1/11/2022"
+output: html_document
+---
+
+```{r load-packages, message = FALSE}
+library(tidyverse)
+library(here)
+library(glue)
+library(gt)
+```
+
+```{r load-data, message = FALSE}
+allNumbers <- read_csv(here::here("02-makeup-shades", "data/allNumbers.csv"))
+```
+
+## Sketch
+
+![Sketch of table to be recreated](images/sketch.png)
+
+## Task 1: Recreate
+
+Recreate the basics of the sketch as a table in R.
+
+- Create the first three columns of the table:
+
+```{r}
+first_three <- allNumbers %>%
+  group_by(product) %>%
+  arrange(numbers) %>%
+  summarise(
+    shades = glue_collapse(hex, sep = ", "),
+    light_to_dark = unique(lightToDark)
+  ) %>%
+  filter(light_to_dark)
+```
+
+- Extract natural / nude / etc. info from color name:
+  - Looking for [Nn]atural, [Nn]eutral, [Nn]ude
+
+```{r}
+natural_marker <- allNumbers %>%
+  mutate(natural_shade = str_detect(name, "[Nn]atural|[Nn]eutral| [Nn]ude")) %>%
+  filter(lightToDark, natural_shade) %>%
+  group_by(product) %>%
+  summarise(natural_number = mean(numbers))
+```
+
+- Calculate percentiles
+
+```{r}
+last_two <- allNumbers %>%
+  inner_join(natural_marker, by = "product") %>%
+  group_by(product) %>%
+  mutate(at_below_natural = (numbers <= natural_number)) %>%
+  summarise(
+    n = n(),
+    prop_at_below_natural = (sum(at_below_natural) / n)
+  )
+```
+
+- Put it altogether
+
+```{r}
+shades_table <- first_three %>%
+  inner_join(last_two, by = "product") %>%
+  select(-light_to_dark)
+
+shades_table
+```
+
+## Task 2: Improve
+
+Improve the table above.
+
+```{r}
+shades_table %>%
+  separate_rows(shades, sep = ", ") %>%
+  mutate(
+    shades = str_trim(shades), 
+    shades = glue('<span style="color:{shades}">■</span>')
+    ) %>%
+  group_by(product, n, prop_at_below_natural) %>%
+  summarise(shades = glue_collapse(shades, sep = " "), .groups = "drop") %>%
+  relocate(product, shades) %>%
+  gt() %>%
+  fmt(
+    columns = shades,
+    fns = function(x){
+      map(x, html)
+    }
+  ) %>%
+  fmt_percent(
+    columns = prop_at_below_natural,
+    decimals = 2
+  )
+```
