@@ -1,0 +1,30 @@
+---
+title: "A table of shades"
+subtitle: "Coding out loud, Ep 2"
+author: "Mine Çetinkaya-Rundel + Evan Dragich"
+date: "1/11/2022"
+output: html_document
+---
+
+```{r load-packages, message = FALSE}
+library(tidyverse)
+library(glue)
+library(here)
+library(gt)
+```
+
+```{r load-data, message = FALSE}
+allNumbers <- read_csv(here::here("02-makeup-shades", "data/allNumbers.csv"))
+```
+
+## Sketch
+
+![](images/sketch.png)
+
+## Task 1: Recreate
+
+Recreate the basics of the sketch as a table in R.
+
+## Task 2: Improve
+
+Improve the table above.
