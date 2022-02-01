@@ -17,3 +17,5 @@ library(ggforce)
 ## Task 2: Draw pumpkin
 
 ## Task 3: Draw pumpkin made of circles
+
+## Task 4: Repeat and add background
