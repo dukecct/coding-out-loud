@@ -1,0 +1,26 @@
+---
+title: "Kusama's pumpkins"
+subtitle: "Coding out loud, Ep 3"
+author: "Mine Çetinkaya-Rundel + Lillian Clark"
+date: "2/1/2022"
+output: github_document
+---
+
+```{r load-packages, message = FALSE}
+library(tidyverse)
+library(ggforce)
+```
+
+## Inspiration
+
+![](images/kusamas-pumpkins.jpeg)
+
+## Task 1: Construct data
+
+
+
+## Task 2: Draw pumpkin
+
+
+
+## Task 3: Draw pumpkin made of circles
