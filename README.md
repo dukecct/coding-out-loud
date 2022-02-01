@@ -4,14 +4,14 @@ This session will be livestreamed on the [Center for Computational Thinking YouT
  
 ## Episodes
 
-### Episode 1 - [Doctors of Dr. Who](https://github.com/dukecct/coding-out-loud/tree/main/01-dr-who)
+### Episode 3 - [Kusama's pumpkins](https://github.com/dukecct/coding-out-loud/tree/main/03-kusama)
 
-With guest host [Evan Dragich](https://github.com/evandragich) (Class of 2023, BS in Psychology and Statistics)  
+With guest host [Lillian Clark](https://github.com/li11ianc) (AB in Statistical Science and Certificate in Documentary Studies, Class of 2023)
 
-:spiral_calendar: Tuesday, November 30, 2021 | 1:30 – 2:30 PM EST  
-:tv: [Watch on YouTube](https://www.youtube.com/watch?v=kG9tv8NRPVo)  
-:cloud: [Get started on RStudio Cloud](https://rstudio.cloud/project/3257566)  
-:file_folder: [See source code on GitHub](https://github.com/dukecct/coding-out-loud/tree/main/01-dr-who)  
+:spiral_calendar: Wednesday, February 2, 2022 | 4:00 – 5:00 PM EST  
+:tv: [Watch on YouTube](https://www.youtube.com/watch?v=b0d4vrJqKwM)  
+:cloud: [Get started on RStudio Cloud]()  <- ADD LINK  
+:file_folder: [See source code on GitHub](https://github.com/dukecct/coding-out-loud/tree/main/03-kusama)  
 
 ### Episode 2 - [A table of shades](https://github.com/dukecct/coding-out-loud/tree/main/02-makeup-shades)
 
@@ -21,3 +21,12 @@ With guest host [Holly Cui](https://github.com/hollyyfc) (Class of 2023, BS in S
 :tv: [Watch on YouTube](https://www.youtube.com/watch?v=b0d4vrJqKwM)  
 :cloud: [Get started on RStudio Cloud](https://rstudio.cloud/project/3429098)  
 :file_folder: [See source code on GitHub](https://github.com/dukecct/coding-out-loud/tree/main/02-makeup-shades)  
+
+### Episode 1 - [Doctors of Dr. Who](https://github.com/dukecct/coding-out-loud/tree/main/01-dr-who)
+
+With guest host [Evan Dragich](https://github.com/evandragich) (Class of 2023, BS in Psychology and Statistics)  
+
+:spiral_calendar: Tuesday, November 30, 2021 | 1:30 – 2:30 PM EST  
+:tv: [Watch on YouTube](https://www.youtube.com/watch?v=kG9tv8NRPVo)  
+:cloud: [Get started on RStudio Cloud](https://rstudio.cloud/project/3257566)  
+:file_folder: [See source code on GitHub](https://github.com/dukecct/coding-out-loud/tree/main/01-dr-who)  
