@@ -4,5 +4,5 @@ With guest host [Lillian Clark](https://github.com/li11ianc) (AB in Statistical 
 
 :spiral_calendar: Wednesday, February 2, 2022 | 4:00 – 5:00 PM EST  
 :tv: [Watch on YouTube](https://youtu.be/t3TVKZLwpiA)  
-:cloud: [Get started on RStudio Cloud]()  <- ADD LINK  
+:cloud: [Get started on RStudio Cloud](https://rstudio.cloud/project/3530504)  
 :file_folder: [See source code on GitHub](https://github.com/dukecct/coding-out-loud/tree/main/03-kusama)  

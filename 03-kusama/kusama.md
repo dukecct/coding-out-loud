@@ -12,10 +12,10 @@ library(ggforce)
 
 ![](images/kusamas-pumpkins.jpeg)
 
-## Task 1: Construct data
+## Task 1: Draw a circle
 
-## Task 2: Draw pumpkin
+## Task 2: Place many circles in a line
 
-## Task 3: Draw pumpkin made of circles
+## Task 3: Draw a pumpkin made of circles
 
 ## Task 4: Repeat and add background
