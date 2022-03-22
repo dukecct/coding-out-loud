@@ -1,4 +1,4 @@
-## EEpisode 4 - [Wordle on keyboard](https://github.com/dukecct/coding-out-loud/tree/main/04-wordle)
+## Episode 4 - [Wordle on keyboard](https://github.com/dukecct/coding-out-loud/tree/main/04-wordle)
 
 With guest host [Martha Aboagye](https://github.com/AbMartha) (Statistical Science and Computer Science double major with a minor in Philosophy, Class of 2022)
 
