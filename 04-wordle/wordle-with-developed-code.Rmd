@@ -1,0 +1,153 @@
+---
+title: "Wordle on keyboard"
+subtitle: "Coding out loud, Ep 4"
+author: "Mine Çetinkaya-Rundel + Martha Aboagye"
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r load-packages, message = FALSE}
+library(tidyverse)
+library(ggkeyboard) # https://github.com/sharlagelfand/ggkeyboard
+```
+
+## Inspiration
+
+[English keyboard heatmap](https://twitter.com/monachalabi/status/772102591694209024) by [Mona Chalabi](https://twitter.com/MonaChalabi)
+
+## Task 1: Find the first letter of Wordle words
+
+From https://github.com/tabatkins/wordle-list.
+
+```{r}
+wordle <- read_csv("https://raw.githubusercontent.com/tabatkins/wordle-list/main/words", col_names = "word")
+```
+
+```{r}
+wordle <- wordle %>%
+  mutate(first_letter = str_sub(word, start = 1, end = 1))
+```
+
+```{r}
+wordle_counts <- wordle %>%
+  count(first_letter, sort = TRUE)
+```
+
+
+## Task 2: Draw a keyboard
+
+```{r}
+ggkeyboard(tkl, layout = "iso")
+```
+
+## Task 3: Color keyboard keys based on frequency of first letter
+
+### Color options
+
+dark blue - "#2D669B"
+light blue - "#359CA8"
+green - "#B8C222"
+yellow - "#EEDD49"
+orange - "#F2BC4A"
+dark orange - "#FB704A"
+red - "#BE372C"
+
+### Color scale
+
+Let's do some exploratory analysis to determine a scale based on the distribution of `n`.
+
+```{r}
+wordle_counts %>%
+  summarise(
+    min = min(n),
+    mean = mean(n),
+    sd = sd(n),
+    max = max(n),
+    q20 = quantile(n, 0.20),
+    q40 = quantile(n, 0.40),
+    q60 = quantile(n, 0.60),
+    q80 = quantile(n, 0.80)
+  )
+
+ggplot(wordle_counts, aes(x = n)) +
+  geom_histogram(binwidth = 100)
+
+ggplot(wordle_counts, aes(x = first_letter, y = n)) +
+  geom_col() +
+  geom_hline(yintercept = 80)
+```
+
+Based on these, we can use the following cutoffs.
+
+- dark blue   - "#2D669B" - 0
+- light blue  - "#359CA8" - 20
+- green       - "#B8C222" - 189
+- yellow      - "#EEDD49" - 325
+- orange      - "#F2BC4A" - 595
+- dark orange - "#FB704A" - 736
+- red         - "#BE372C" - > 1000
+
+Then, assign the colors to the letters.
+
+```{r}
+wordle_counts <- wordle_counts %>%
+  mutate(
+    color = case_when(
+      n == 0                  ~ "#2D669B",
+      n <=  20                ~ "#359CA8",
+      n > 20  & n <= 189      ~ "#B8C222",
+      n > 189 & n <= 325      ~ "#EEDD49",
+      n > 325 & n <= 595      ~ "#F2BC4A",
+      n > 595 & n <= 1000     ~ "#FB704A",
+      n > 1000  ~ "#BE372C"
+      ),
+    first_letter = str_to_upper(first_letter)
+  ) %>%
+  arrange(first_letter)
+```
+
+Experiment a bit with the `ggkeyboard()` function to see how colors get assigned to letters.
+
+```{r}
+ggkeyboard(sixty_percent, palette = keyboard_palette("magic")) %>%
+  highlight_keys(
+    keys = c("Z", "X", "C", "V"), 
+    fill = c("red", "pink", "orange", "blue"), 
+    alpha = 0.7, 
+    colour = NA
+    )
+
+ggkeyboard(sixty_percent, palette = keyboard_palette("magic")) %>%
+  highlight_keys(
+    keys = c("C", "N", "S"), 
+    fill = c("red", "pink", "orange"), 
+    alpha = 0.7, 
+    colour = NA
+    )
+```
+
+Looks like we need to order the letters in the order they appear on the keyboard, so let's do that.
+
+```{r}
+keys <- read_csv("https://raw.githubusercontent.com/sharlagelfand/ggkeyboard/061f0d9084d76d576200e81439311983e1d50d93/data-raw/sixty_percent.csv")
+
+wordle_counts_ordered <- keys %>% 
+  filter(key_label %in% LETTERS) %>%
+  select(key) %>%
+  left_join(wordle_counts, by = c("key" = "first_letter"))
+```
+
+And finally we can assign the colors to the keys.
+
+```{r}
+ggkeyboard(sixty_percent, palette = keyboard_palette("magic")) %>%
+  highlight_keys(
+    keys = wordle_counts_ordered$key, 
+    fill = wordle_counts_ordered$color, 
+    alpha = 0.7, 
+    colour = NA
+    )
+```
+
+Remaining to do items: change the background of the keyboard and non-letter keys and add a legend.
